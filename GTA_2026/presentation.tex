@@ -1,0 +1,292 @@
+\documentclass{beamer}
+
+
+\usepackage{tikz, tikz-cd}
+
+
+\newcommand{\ol}{\overline}
+
+
+
+\usetheme{madrid}
+
+\title[Lagrangian fibrations]{The algebraic monodromy of Lagrangian fibrations}
+\author{Edward Varvak}
+\institute[UIC]{
+    Department of Mathematics, Science, and Computer Science \\
+    University of Illinois Chicago
+}
+\date{May 2026}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Holomorphic symplectic manifolds}
+
+\begin{block}{Definition}
+A {\it symplectic manifold} \((M, \omega)\) is a smooth manifold \(M\) equipped with a 
+closed non-degenerate global 2-form \(\omega \in H^0\left(M, \bigwedge^2 T^* M\right)\).
+\end{block}
+
+Contracting with \(\omega\) induces an isomorphism 
+\(\iota_{\omega}: TM \xrightarrow{\sim} T^* M\). \pause
+
+\begin{examples}
+\begin{itemize}
+    \item<2-> \(\mathbb{R}^{2n}\) admits a natural symplectic form 
+    \(\omega = \begin{pmatrix}
+    0 & I_n \\ -I_n & 0
+    \end{pmatrix}\). 
+    \item<3-> Any K\"ahler manifold \(X\) is symplectic with respect to the K\"ahler form.
+    \item<4-> Any projective manifold is symplectic with respect to the Fubini--Study metric.
+\end{itemize}
+\end{examples}
+\pause[5]
+Note that in the latter two examples, despite \(X\) being a complex manifold, 
+the K\"ahler form \(\omega \sim dz_1 \wedge d\ol{z}_1 + \cdots + dz_n \wedge d\ol{z}_n\)
+is not holomorphic.
+\end{frame}
+
+
+
+
+\begin{frame}{Holomorphic symplectic manifolds II}
+
+\begin{block}{Definition}
+A {\it holomorphic symplectic manifold} is a pair \((X, \sigma)\), where \(X\) is a 
+K\"ahler manifold equipped with a closed non-degenerate 2-form 
+\(\sigma \in H^0(X, \Omega_X^2)\).
+\end{block}
+
+\pause
+Again, this gives an isomorphism 
+\(\iota_\sigma: \mathcal{T}_X \xrightarrow{\sim} \Omega_X^1\).
+\pause
+
+\begin{examples}
+    \begin{itemize}
+        \item<3-> \(\mathbb{C}^{2n}\) admits a symplectic form \(\begin{pmatrix}
+        0 & I_n \\ -I_n & 0
+        \end{pmatrix}\).
+        \item<4-> Complex tori \(\mathbb{C}^{2n}/\Lambda\), 
+        \(\Lambda \simeq \mathbb{Z}^{4n}\), are symplectic.
+        \item<5-> K3 surfaces \(S\), \(\pi_1(S) = \{1\}\), \(\Omega_S^2 \simeq \mathcal{O}_S\), 
+        are symplectic.
+        \item<6-> Any product of the spaces above is symplectic.
+    \end{itemize}
+\end{examples}
+
+\end{frame}
+
+
+
+\begin{frame}{The decomposition theorem}
+
+We can generalize the K3 surface as follows:
+
+\begin{block}{Definition}
+    We say a compact holomorphic symplectic manifold \((X, \sigma)\) is 
+    {\it irreducible} if it is simply connected and 
+    \(\bigoplus_{p=0}^{\dim X} H^0(X, \Omega_X^{2p}) = \mathbb{C}[\sigma]\).
+\end{block}
+\pause
+
+\begin{block}{Beauville--Bogomolov Decomposition Theorem}
+    Let \((X, \sigma)\) be a compact holomorphic symplectic manifold. Then there exists 
+    a finite cover \[\pi: T \times \prod_i X_i \to X,\]
+    where \(T\) is a complex torus and the \(X_i\) are irreducible holomorphic 
+    symplectic manifolds. 
+\end{block}
+\pause
+
+Since complex tori are somewhat well understood, we will focus on understanding 
+the irreducible holomorphic symplectic (IHS) \(X_i\).
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{definition}
+    Let \((X, \sigma)\) be a holomorphic symplectic manifold of dimension \(2n\), and 
+    let \(Y \subseteq X\) be a subvariety. 
+    \begin{enumerate}
+        \item \(Y\) is {\it isotropic} if \(\sigma|_Y = 0\).
+        \item \(Y\) is {\it Lagrangian} if \(Y\) is maximally isotropic, i.e. 
+        \(\sigma|_Y = 0\) and \(\dim Y = n\).
+    \end{enumerate}
+\end{definition}
+
+\pause
+In general, we study symplectic manifolds by finding Lagrangian subvarieties.
+\pause
+
+\begin{theorem}[Greb--Lehn `14]
+    Let \(f: X \to B\) be a proper surjective morphism, \(B\) a normal analytic space of 
+    dimension not equal to \(0\) or \(2n\). Then the fibers of \(f\) are Lagrangian
+    subvarieties and \(B\) is a projective variety of dimension \(n\).
+\end{theorem}
+
+\pause
+For this reason, we refer to any such morphism \(f: X \to B\) as a 
+{\it Lagrangian fibration}. Understanding the geometry of Lagrangian fibrations 
+will help us understand the geometry of IHS manifolds.
+
+\end{frame}
+
+
+
+\begin{frame}{The structure of the fibration}
+
+Let \(f^\circ: X^\circ \to B^\circ\) be the smooth fibers of \(f: X \to B\). 
+We need to understand 
+\begin{itemize}
+    \item the base \(B\),
+    \item the general fiber \(X_b\),
+    \item the action of \(\pi_1(B^\circ, b)\) on \(X_b\).
+\end{itemize}
+\pause
+
+\begin{theorem}
+    \begin{itemize}
+        \item (Matsushita `99) The smooth fibers \(X_b\) are Abelian varieties. \pause
+        \item (Hwang `08) If \(B\) is smooth, \(B \simeq \mathbb{P}^n\).
+    \end{itemize}
+\end{theorem}
+
+\pause
+By Hodge theory, an Abelian variety \(A\) can be recovered from its cohomology:
+\begin{equation*}
+    A \simeq H^{1,0}(A) / (H^1(A, \mathbb{Z}))^\vee.
+\end{equation*}
+We will study the monodromy representation 
+\[\rho: \pi_1(B^\circ, b) \to \mathrm{Aut}(H^1(X_b, \mathbb{Z})).\]
+
+
+\end{frame}
+
+
+\begin{frame}{Algebraic monodromy groups}
+
+\begin{Definition}
+The {\it full algebraic monodromy group} \(M\) of \(\rho\) is the Zariski closure of 
+\(\rho(\pi_1(B^\circ, b)) \subseteq \mathrm{Aut}(H^1(X_b, \mathbb{Q})) = 
+\mathrm{Sp}_{2n, \mathbb{Q}}\). Its identity component 
+\(M^\circ \subseteq M\) is the {\it (connected) algebraic monodromy group}.
+\end{Definition}
+\pause
+
+When \(X\) is projective, we can classify the possible representations of 
+the algebraic monodromy group.
+
+\begin{Theorem}[V `26+]
+Let \(X\) be a \(2n\)-dimensional projective IHS manifold admitting a Lagrangian fibration 
+\(f: X \to B\). The algebraic monodromy group \(M^\circ\) associated to \(f\) is 
+one of the following groups: \pause
+\begin{enumerate}
+    \item \(M^\circ = \mathrm{Sp}_{2n, \mathbb Q}\), acting on \(H^1(X_b, \mathbb Q)\) 
+    via the standard representation; \pause
+    \item \(M^\circ = (\mathrm{SL}_{2, \mathbb Q})^n\), acting on \(H^1(X_b, \mathbb Q)\)
+    diagonally; \pause
+    \item \(M^\circ = \{1\}\), acting trivially on \(H^1(X_b, \mathbb{Q})\).
+\end{enumerate}
+\end{Theorem}
+
+\end{frame}
+
+
+
+\begin{frame}{Geometric consequences}
+
+In each of the cases above, we extract information regarding the geometry 
+of \(X\) and \(f: X \to B\). \pause
+
+\begin{Theorem}[V `26+]
+\begin{enumerate}
+    \item When \(M^\circ = \mathrm{Sp}_{2n, \mathbb Q}\), the very general fiber 
+    of \(f\) is a simple Abelian variety with no extra endomorphisms. \pause
+    \item When \(M^\circ = (\mathrm{SL_{2, \mathbb Q}})^n\), there exists an 
+    elliptically fibered K3 surface \(g: S \to \mathbb{P}^1\) such that 
+    \(X \to B\) is birational to \(S^n/\mathfrak{S}_n \to \mathbb{P}^n\).
+    In particular, the fibers \(X_b\) are isogenous to products of elliptic curves.
+\end{enumerate}
+\end{Theorem}
+\pause
+
+The case (3) is also somewhat well understood based on previous work:
+
+\begin{Theorem}[Kim--Laza--Martin `25, V `26]
+    When \(M^\circ = \{1\}\), there exists an elliptic curve \(E\) 
+    for which the smooth fibers \(X_b\) are isogenous to \(E^n\).
+\end{Theorem}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Proof of the main theorem.}
+
+{\it Proof idea.} 
+We have the following isomorphism of bundles:
+\begin{equation*}
+\begin{tikzcd}
+0 \arrow{r} & \mathcal{T}_{X^\circ/B^\circ} \arrow{r} \arrow[equals]{d} & \mathcal{T}_{X^\circ} \arrow{r} \arrow[equals]{d} & f^*\mathcal{T}_{B^\circ} \arrow{r} \arrow[equals]{d} & 0 \\
+0 \arrow{r} & f^*\Omega_{B^\circ}^1 \arrow{r} & \Omega_{X^\circ}^1 \arrow{r} & \Omega_{X^\circ/B^\circ}^1 \arrow{r} & 0
+\end{tikzcd}
+\end{equation*}
+The fibers of \(f\) are given by quotienting \(f_*\Omega^1_{X^\circ/B^\circ, b}\) 
+by a full rank sublattice. In particular, the structure of the fibers of 
+\(f\) comes from \(\mathcal{T}_B\). \pause \newline
+
+There exists a cover \(\pi: B' \to B\) for which 
+\(\mathcal{T}_{B'} = \mathcal{F}_1 \oplus \cdots \oplus \mathcal{F}_k\) splits 
+into transverse foliations \(\mathcal{F}_i\), which are permuted by the 
+covering group \(\mathfrak{S}_k\). \pause
+The general leaves of \(\mathcal{F}_i\) 
+are algebraic, yielding a generically finite rational map 
+\begin{equation*}
+    p: B' \dasharrow Z^k.
+\end{equation*}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Proof of main theorem.}
+
+{\it Proof idea (continued).} Now quotient \(p: B' \dasharrow Z^k\) by \(\mathfrak{S}_k\).
+We get a rational map \(X \xrightarrow{f} B \dasharrow Z^k/\mathfrak{S}_k\).
+By a criterion of Sacc\`a, we can construct another IHS manifold \(\widetilde{X}\) 
+birational to \(X\) with a morphism \(\varphi: \widetilde{X} \to Z^k/\mathfrak{S}_k\)
+extending the composition. \pause \newline
+
+By a theorem of Matsushita, \(Z^k/\mathfrak{S}_k\) has the same cohomology as 
+\(\mathbb{P}^n\). This forces 
+\begin{equation*}
+    \mathrm{IH}^*(Z, \mathbb{Q}) = H^*(\mathbb{P}^1, \mathbb{Q}),
+\end{equation*}
+so that \(Z = \mathbb{P}^1\), and \(k = n\). \pause
+Now we may construct a K3 surface \(S\) and a family of elliptic curves 
+\(g: S \to \mathbb{P}^1\) so that 
+\begin{equation*}
+\begin{tikzcd}
+S^n/\mathfrak{S}_n \arrow[dashed]{rr}{\sim} \arrow{dr} && \widetilde{X} \arrow{dl}{\varphi} \\
+& \mathbb{P}^n &
+\end{tikzcd}
+\end{equation*}
+\qed
+
+\end{frame}
+
+
+\begin{frame}{Questions}
+    
+\end{frame}
+
+
+\end{document}
