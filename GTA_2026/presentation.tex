@@ -210,10 +210,9 @@ of \(X\) and \(f: X \to B\). \pause
 \begin{enumerate}
     \item When \(M^\circ = \mathrm{Sp}_{2n, \mathbb Q}\), the very general fiber 
     of \(f\) is a simple Abelian variety with no extra endomorphisms. \pause
-    \item When \(M^\circ = (\mathrm{SL_{2, \mathbb Q}})^n\), there exists an 
-    elliptically fibered K3 surface \(g: S \to \mathbb{P}^1\) such that 
-    \(X \to B\) is birational to \(S^n/\mathfrak{S}_n \to \mathbb{P}^n\).
-    In particular, the fibers \(X_b\) are isogenous to products of elliptic curves.
+    \item When \(M^\circ = (\mathrm{SL_{2, \mathbb Q}})^n\), for any smooth fiber 
+    \(X_b\) there exist elliptic curves \(E_1, \dots, E_n\) such that \(X_b\) 
+    is isogenous to \(E_1 \times \cdots \times E_n\).
 \end{enumerate}
 \end{Theorem}
 \pause
@@ -247,41 +246,59 @@ There exists a cover \(\pi: B' \to B\) for which
 \(\mathcal{T}_{B'} = \mathcal{F}_1 \oplus \cdots \oplus \mathcal{F}_k\) splits 
 into transverse foliations \(\mathcal{F}_i\), which are permuted by the 
 covering group \(\mathfrak{S}_k\). \pause
-The general leaves of \(\mathcal{F}_i\) 
-are algebraic, yielding a generically finite rational map 
+The leaves of \(\mathcal{F}_i\) are algebraic, yielding a generically finite morphism 
 \begin{equation*}
-    p: B' \dasharrow Z^k.
+    p: B' \to Z^k.
 \end{equation*}
 
 \end{frame}
 
 
+\begin{frame}{Proof of the main theorem.}
 
-\begin{frame}[fragile]{Proof of main theorem.}
-
-{\it Proof idea (continued).} Now quotient \(p: B' \dasharrow Z^k\) by \(\mathfrak{S}_k\).
-We get a rational map \(X \xrightarrow{f} B \dasharrow Z^k/\mathfrak{S}_k\).
-By a criterion of Sacc\`a, we can construct another IHS manifold \(\widetilde{X}\) 
-birational to \(X\) with a morphism \(\varphi: \widetilde{X} \to Z^k/\mathfrak{S}_k\)
-extending the composition. \pause \newline
-
-By a theorem of Matsushita, \(Z^k/\mathfrak{S}_k\) has the same cohomology as 
-\(\mathbb{P}^n\). This forces 
+{\it Proof idea (continued).} Now quotient \(p: B' \to Z^k\) by the symmetric group 
+to get \(\ol{p}: B \to \mathrm{Sym}^k Z\). This induces a surjection on 
+intersection cohomology: 
 \begin{equation*}
-    \mathrm{IH}^*(Z, \mathbb{Q}) = H^*(\mathbb{P}^1, \mathbb{Q}),
+    \mathrm{IH}^*(\mathrm{Sym}^k Z, \mathbb{Q}) = 
+    \mathrm{Sym}^k \left(\mathrm{IH}^*(Z, \mathbb{Q})\right) \subseteq
+    \mathrm{IH}^*(B, \mathbb{Q}).
 \end{equation*}
-so that \(Z = \mathbb{P}^1\), and \(k = n\). \pause
-Now we may construct a K3 surface \(S\) and a family of elliptic curves 
-\(g: S \to \mathbb{P}^1\) so that 
-\begin{equation*}
-\begin{tikzcd}
-S^n/\mathfrak{S}_n \arrow[dashed]{rr}{\sim} \arrow{dr} && \widetilde{X} \arrow{dl}{\varphi} \\
-& \mathbb{P}^n &
-\end{tikzcd}
-\end{equation*}
+\pause
+
+By Matsushita, \(\mathrm{IH}^*(B, \mathbb{Q}) = H^*(\mathbb{P}^n, \mathbb{Q})\). 
+Therefore 
+\[\mathrm{IH}^*(Z, \mathbb{Q}) = H^*(\mathbb{P}^1, \mathbb{Q}),\]
+forcing \(Z = \mathbb{P}^1\) and \(k = 1\).
 \qed
-
 \end{frame}
+
+
+% \begin{frame}[fragile]{Proof of main theorem.}
+
+% {\it Proof idea (continued).} Now quotient \(p: B' \dasharrow Z^k\) by \(\mathfrak{S}_k\).
+% We get a rational map \(X \xrightarrow{f} B \dasharrow Z^k/\mathfrak{S}_k\).
+% By a criterion of Sacc\`a, we can construct another IHS manifold \(\widetilde{X}\) 
+% birational to \(X\) with a morphism \(\varphi: \widetilde{X} \to Z^k/\mathfrak{S}_k\)
+% extending the composition. \pause \newline
+
+% By a theorem of Matsushita, \(Z^k/\mathfrak{S}_k\) has the same cohomology as 
+% \(\mathbb{P}^n\). This forces 
+% \begin{equation*}
+%     \mathrm{IH}^*(Z, \mathbb{Q}) = H^*(\mathbb{P}^1, \mathbb{Q}),
+% \end{equation*}
+% so that \(Z = \mathbb{P}^1\), and \(k = n\). \pause
+% Now we may construct a K3 surface \(S\) and a family of elliptic curves 
+% \(g: S \to \mathbb{P}^1\) so that 
+% \begin{equation*}
+% \begin{tikzcd}
+% S^n/\mathfrak{S}_n \arrow[dashed]{rr}{\sim} \arrow{dr} && \widetilde{X} \arrow{dl}{\varphi} \\
+% & \mathbb{P}^n &
+% \end{tikzcd}
+% \end{equation*}
+% \qed
+
+% \end{frame}
 
 
 \begin{frame}{Questions}
